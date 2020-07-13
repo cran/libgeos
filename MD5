@@ -1,9 +1,10 @@
-fb8b9bae70e5bd83e6b120ff6f6f1cbd *DESCRIPTION
+f3eda06b6d7d78b4cf20e48e4a78573b *DESCRIPTION
 181044c276f2e9f8faa55ea58d02ec83 *NAMESPACE
 54b90de99d7075b77d58bd04877fd6ff *NEWS.md
 05f885400e1ffaa4f2be2f205154c3b0 *R/libgeos-package.R
-c859f5c8b30e9c09254f1db71cb4f4ce *README.md
+4f01dcda022e8cb6e25bcce363a48085 *README.md
 df2f1f14bf5ed02c1024ae317ea65487 *cleanup
+445b8291ad523af515ed4b3f097bc056 *configure
 edc139ebd8da4fa59ec2dff06ecf3377 *inst/COPYRIGHTS
 7b6e1ee36a907abd349ae8bed1f50aae *inst/include/libgeos-rcpp.h
 28525ebf67afdd5cb80ab684de921abf *inst/include/libgeos.c
@@ -418,9 +419,10 @@ da7a2756dcd1df585ac2280ecec2ebc5 *inst/libgeos_include/geos/util/UnsupportedOper
 3dcc73572c6a5c242eddca489e7d9c49 *inst/libgeos_include/geos/version.h
 78f4c10fc155f1762bd8f97b389039f7 *inst/libgeos_include/geos_c.h
 58213f70350df42025fdaf9d79caa2df *inst/libgeos_include/libgeos-cpp-compat.h
-87d7ff81e01a350d272d1d2acf8fa3cb *man/libgeos-package.Rd
+a2325fd5449f704bc4160beb6d22733f *man/libgeos-package.Rd
 d9bda11cbbe548815bc8a853e655cafb *man/libgeos_version.Rd
-c312bcc556f0c941e1ef84368e824dfa *src/Makevars
+41955111c49b8565daea1411699b7e55 *src/Makevars.in
+a72c2906dd2ddba3b0673a212429f6cd *src/Makevars.win
 2b62d69e9a739211f280d13da6ccf693 *src/geos/algorithm/Angle.cpp
 b9afc2a3497e93d851d72ce9f730b0d2 *src/geos/algorithm/Area.cpp
 0e113da93d9548fa3d8fc168804b65da *src/geos/algorithm/BoundaryNodeRule.cpp
@@ -727,5 +729,6 @@ c0367bf58b9bbae0bce9a94f965a557c *src/libgeos-cpp-compat.cpp
 cb2fffe9123be5ff203568470a3a75aa *src/libgeos-init.cpp
 a79ae44b62cfefae42bdeb3db08767f2 *tests/testthat.R
 ae131c1b4c8e6054fd2a6a1b05c6ef08 *tests/testthat/helper-source-rcpp.R
-ed15595ccb20789f265fc60a5095a1d4 *tests/testthat/test-rcpp-api.R
+27d4fba8b94549754187a52afc20f658 *tests/testthat/test-rcpp-api.R
 9c5765554710c07158919a32d94bd940 *tests/testthat/test-version.R
+b8a3e5dc5bacf861c9b1dd14409b2315 *tools/test_geos.c
