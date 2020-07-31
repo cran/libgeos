@@ -1,9 +1,10 @@
-PKG_CPPFLAGS = -I../src/geos_include -DUSE_UNSTABLE_GEOS_CPP_API
+PKG_CPPFLAGS = -I../src/geos_include -DUSE_UNSTABLE_GEOS_CPP_API -DGEOS_USE_ONLY_R_API
 
 CXX_STD = CXX11
 
 OBJECTS = libgeos-cpp-compat.o \
      libgeos-init.o \
+     libgeos-version.o \
      geos/algorithm/Angle.o \
      geos/algorithm/Area.o \
      geos/algorithm/BoundaryNodeRule.o \

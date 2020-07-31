@@ -1,7 +1,7 @@
-e73296718b267b4c274e5321642af39b *DESCRIPTION
+33bd604a99ff7343fc679f7341c1fc9c *DESCRIPTION
 181044c276f2e9f8faa55ea58d02ec83 *NAMESPACE
-95968a72accfe9789463d1ad13267f45 *NEWS.md
-05f885400e1ffaa4f2be2f205154c3b0 *R/libgeos-package.R
+ca5dc1249652cadaa9e57d8f0054ae76 *NEWS.md
+2e2a05191f6b383a486f64b027c6722e *R/libgeos-package.R
 c3d349c75e14f18849397b9ea2759714 *README.md
 df2f1f14bf5ed02c1024ae317ea65487 *cleanup
 edc139ebd8da4fa59ec2dff06ecf3377 *inst/COPYRIGHTS
@@ -10,7 +10,7 @@ edc139ebd8da4fa59ec2dff06ecf3377 *inst/COPYRIGHTS
 bf7d6aaaaf0799151d755b9d9f007973 *inst/include/libgeos.h
 31fcb50425a5b2c124f4eed350a0efd2 *man/libgeos-package.Rd
 d9bda11cbbe548815bc8a853e655cafb *man/libgeos_version.Rd
-93a2c5405d702ae0cc25f9c1712601cb *src/Makevars
+5c48a836aaf2c17cf96f6beb772e4346 *src/Makevars
 2b62d69e9a739211f280d13da6ccf693 *src/geos/algorithm/Angle.cpp
 b9afc2a3497e93d851d72ce9f730b0d2 *src/geos/algorithm/Area.cpp
 0e113da93d9548fa3d8fc168804b65da *src/geos/algorithm/BoundaryNodeRule.cpp
@@ -115,7 +115,7 @@ a9984ae5a1dac8cf9e9a901a6c0641c5 *src/geos/geomgraph/Quadrant.cpp
 22f3b04a3b0cec15beefd84053098935 *src/geos/geomgraph/index/SimpleSweepLineIntersector.cpp
 05a90239aed766e13e4d72e6d7b5fa70 *src/geos/geomgraph/index/SweepLineEvent.cpp
 333f0a5a0cccbc777076b22dcc0ba095 *src/geos/geomgraph/index/SweepLineSegment.cpp
-db3fbb8abaf75e91906463951bdb7605 *src/geos/geos_ts_c.cpp
+e0005f19a18c39a7fc1bf405adcae1ed *src/geos/geos_ts_c.cpp
 2c02f976c622a4cc7f9454459e594787 *src/geos/index/bintree/Bintree.cpp
 5ded483bfcd5267986f48ed510074ec4 *src/geos/index/bintree/Interval.cpp
 7e4c1f7ca0ccebe863a1d1908de05ea5 *src/geos/index/bintree/Key.cpp
@@ -720,10 +720,11 @@ af5bd535169c6631720d2aa121e5c419 *src/geos_include/geos/util/UniqueCoordinateArr
 da7a2756dcd1df585ac2280ecec2ebc5 *src/geos_include/geos/util/UnsupportedOperationException.h
 7ee9f3d62020e2b5c983f4bf91f64d3f *src/geos_include/geos/util/math.h
 3dcc73572c6a5c242eddca489e7d9c49 *src/geos_include/geos/version.h
-8c8f23b513171df9e12d870f8be90bd6 *src/geos_include/geos_c.h
+78f4c10fc155f1762bd8f97b389039f7 *src/geos_include/geos_c.h
 58213f70350df42025fdaf9d79caa2df *src/geos_include/libgeos-cpp-compat.h
 c0367bf58b9bbae0bce9a94f965a557c *src/libgeos-cpp-compat.cpp
-cb2fffe9123be5ff203568470a3a75aa *src/libgeos-init.cpp
+e58327522054955c7147ced0ae3c38f2 *src/libgeos-init.c
+9c2fa6e247ed177a97cb33f554f4effa *src/libgeos-version.c
 a79ae44b62cfefae42bdeb3db08767f2 *tests/testthat.R
 ae131c1b4c8e6054fd2a6a1b05c6ef08 *tests/testthat/helper-source-rcpp.R
 503b4c39e7cb3eb9ab41bb8b93631c2a *tests/testthat/test-rcpp-api.R

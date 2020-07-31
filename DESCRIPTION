@@ -1,6 +1,6 @@
 Package: libgeos
 Title: Open Source Geometry Engine ('GEOS') C API
-Version: 3.8.1-2
+Version: 3.8.1-3
 Authors@R: 
     c(
       person(given = "Dewey",
@@ -42,7 +42,7 @@ URL: https://paleolimbot.github.io/libgeos,
 BugReports: https://github.com/paleolimbot/libgeos/issues
 Suggests: Rcpp, testthat
 NeedsCompilation: yes
-Packaged: 2020-07-21 19:28:57 UTC; dewey
+Packaged: 2020-07-30 14:11:30 UTC; dewey
 Author: Dewey Dunnington [aut, cre] (<https://orcid.org/0000-0002-9415-4582>),
   GEOS authors [aut],
   Martin Davis [ctb, cph],
@@ -62,4 +62,4 @@ Author: Dewey Dunnington [aut, cre] (<https://orcid.org/0000-0002-9415-4582>),
   Vivid Solutions Inc. [cph]
 Maintainer: Dewey Dunnington <dewey@fishandwhistle.net>
 Repository: CRAN
-Date/Publication: 2020-07-21 21:00:02 UTC
+Date/Publication: 2020-07-31 08:50:08 UTC
