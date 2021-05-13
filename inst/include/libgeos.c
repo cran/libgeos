@@ -74,16 +74,23 @@ GEOSGeometry* (*GEOSGeom_clone_r)(GEOSContextHandle_t, const GEOSGeometry*) = NU
 void (*GEOSGeom_destroy_r)(GEOSContextHandle_t, GEOSGeometry*) = NULL;
 GEOSGeometry* (*GEOSEnvelope_r)(GEOSContextHandle_t, const GEOSGeometry*) = NULL;
 GEOSGeometry* (*GEOSIntersection_r)(GEOSContextHandle_t, const GEOSGeometry*, const GEOSGeometry*) = NULL;
+GEOSGeometry* (*GEOSIntersectionPrec_r)(GEOSContextHandle_t, const GEOSGeometry*, const GEOSGeometry*, double) = NULL;
 GEOSGeometry* (*GEOSConvexHull_r)(GEOSContextHandle_t, const GEOSGeometry*) = NULL;
 GEOSGeometry* (*GEOSMinimumRotatedRectangle_r)(GEOSContextHandle_t, const GEOSGeometry*) = NULL;
+GEOSGeometry* (*GEOSMaximumInscribedCircle_r)(GEOSContextHandle_t, const GEOSGeometry*, double) = NULL;
+GEOSGeometry* (*GEOSLargestEmptyCircle_r)(GEOSContextHandle_t, const GEOSGeometry*, const GEOSGeometry*, double) = NULL;
 GEOSGeometry* (*GEOSMinimumWidth_r)(GEOSContextHandle_t, const GEOSGeometry*) = NULL;
 GEOSGeometry* (*GEOSMinimumClearanceLine_r)(GEOSContextHandle_t, const GEOSGeometry*) = NULL;
 int (*GEOSMinimumClearance_r)(GEOSContextHandle_t, const GEOSGeometry*, double*) = NULL;
 GEOSGeometry* (*GEOSDifference_r)(GEOSContextHandle_t, const GEOSGeometry*, const GEOSGeometry*) = NULL;
+GEOSGeometry* (*GEOSDifferencePrec_r)(GEOSContextHandle_t, const GEOSGeometry*, const GEOSGeometry*, double) = NULL;
 GEOSGeometry* (*GEOSSymDifference_r)(GEOSContextHandle_t, const GEOSGeometry*, const GEOSGeometry*) = NULL;
+GEOSGeometry* (*GEOSSymDifferencePrec_r)(GEOSContextHandle_t, const GEOSGeometry*, const GEOSGeometry*, double) = NULL;
 GEOSGeometry* (*GEOSBoundary_r)(GEOSContextHandle_t, const GEOSGeometry*) = NULL;
 GEOSGeometry* (*GEOSUnion_r)(GEOSContextHandle_t, const GEOSGeometry*, const GEOSGeometry*) = NULL;
+GEOSGeometry* (*GEOSUnionPrec_r)(GEOSContextHandle_t, const GEOSGeometry*, const GEOSGeometry*, double) = NULL;
 GEOSGeometry* (*GEOSUnaryUnion_r)(GEOSContextHandle_t, const GEOSGeometry*) = NULL;
+GEOSGeometry* (*GEOSUnaryUnionPrec_r)(GEOSContextHandle_t, const GEOSGeometry*, double) = NULL;
 GEOSGeometry* (*GEOSCoverageUnion_r)(GEOSContextHandle_t, const GEOSGeometry*) = NULL;
 GEOSGeometry* (*GEOSUnionCascaded_r)(GEOSContextHandle_t, const GEOSGeometry*) = NULL;
 GEOSGeometry* (*GEOSPointOnSurface_r)(GEOSContextHandle_t, const GEOSGeometry*) = NULL;
@@ -129,6 +136,8 @@ char (*GEOSPreparedIntersects_r)(GEOSContextHandle_t, const GEOSPreparedGeometry
 char (*GEOSPreparedOverlaps_r)(GEOSContextHandle_t, const GEOSPreparedGeometry*, const GEOSGeometry*) = NULL;
 char (*GEOSPreparedTouches_r)(GEOSContextHandle_t, const GEOSPreparedGeometry*, const GEOSGeometry*) = NULL;
 char (*GEOSPreparedWithin_r)(GEOSContextHandle_t, const GEOSPreparedGeometry*, const GEOSGeometry*) = NULL;
+GEOSCoordSequence* (*GEOSPreparedNearestPoints_r)( GEOSContextHandle_t, const GEOSPreparedGeometry*, const GEOSGeometry*) = NULL;
+int (*GEOSPreparedDistance_r)( GEOSContextHandle_t, const GEOSPreparedGeometry*, const GEOSGeometry*, double*) = NULL;
 GEOSSTRtree* (*GEOSSTRtree_create_r)( GEOSContextHandle_t, size_t) = NULL;
 void (*GEOSSTRtree_insert_r)(GEOSContextHandle_t, GEOSSTRtree*, const GEOSGeometry*, void*) = NULL;
 void (*GEOSSTRtree_query_r)(GEOSContextHandle_t, GEOSSTRtree*, const GEOSGeometry*, GEOSQueryCallback, void*) = NULL;
@@ -220,6 +229,7 @@ void (*GEOSFree_r)(GEOSContextHandle_t, void*) = NULL;
 void libgeos_init_api() {
   libgeos_version_int = (int (*)()) R_GetCCallable("libgeos", "libgeos_version_int");
 
+  // exported in libgeos >= 3.8.1
   initGEOS_r = (GEOSContextHandle_t (*)( GEOSMessageHandler, GEOSMessageHandler)) R_GetCCallable("libgeos", "initGEOS_r");
   finishGEOS_r = (void (*)(GEOSContextHandle_t)) R_GetCCallable("libgeos", "finishGEOS_r");
   GEOS_init_r = (GEOSContextHandle_t (*)()) R_GetCCallable("libgeos", "GEOS_init_r");
@@ -429,4 +439,17 @@ void libgeos_init_api() {
   GEOSWKBWriter_getIncludeSRID_r = (char (*)(GEOSContextHandle_t, const GEOSWKBWriter*)) R_GetCCallable("libgeos", "GEOSWKBWriter_getIncludeSRID_r");
   GEOSWKBWriter_setIncludeSRID_r = (void (*)(GEOSContextHandle_t, GEOSWKBWriter*, const char)) R_GetCCallable("libgeos", "GEOSWKBWriter_setIncludeSRID_r");
   GEOSFree_r = (void (*)(GEOSContextHandle_t, void*)) R_GetCCallable("libgeos", "GEOSFree_r");
+
+  // exported in libgeos >= 3.9.1
+  if (libgeos_version_int() >= LIBGEOS_VERSION_INT(3, 9, 1)) {
+    GEOSIntersectionPrec_r = (GEOSGeometry* (*)(GEOSContextHandle_t, const GEOSGeometry*, const GEOSGeometry*, double)) R_GetCCallable("libgeos", "GEOSIntersectionPrec_r");
+    GEOSMaximumInscribedCircle_r = (GEOSGeometry* (*)(GEOSContextHandle_t, const GEOSGeometry*, double)) R_GetCCallable("libgeos", "GEOSMaximumInscribedCircle_r");
+    GEOSLargestEmptyCircle_r = (GEOSGeometry* (*)(GEOSContextHandle_t, const GEOSGeometry*, const GEOSGeometry*, double)) R_GetCCallable("libgeos", "GEOSLargestEmptyCircle_r");
+    GEOSDifferencePrec_r = (GEOSGeometry* (*)(GEOSContextHandle_t, const GEOSGeometry*, const GEOSGeometry*, double)) R_GetCCallable("libgeos", "GEOSDifferencePrec_r");
+    GEOSSymDifferencePrec_r = (GEOSGeometry* (*)(GEOSContextHandle_t, const GEOSGeometry*, const GEOSGeometry*, double)) R_GetCCallable("libgeos", "GEOSSymDifferencePrec_r");
+    GEOSUnionPrec_r = (GEOSGeometry* (*)(GEOSContextHandle_t, const GEOSGeometry*, const GEOSGeometry*, double)) R_GetCCallable("libgeos", "GEOSUnionPrec_r");
+    GEOSUnaryUnionPrec_r = (GEOSGeometry* (*)(GEOSContextHandle_t, const GEOSGeometry*, double)) R_GetCCallable("libgeos", "GEOSUnaryUnionPrec_r");
+    GEOSPreparedNearestPoints_r = (GEOSCoordSequence* (*)( GEOSContextHandle_t, const GEOSPreparedGeometry*, const GEOSGeometry*)) R_GetCCallable("libgeos", "GEOSPreparedNearestPoints_r");
+    GEOSPreparedDistance_r = (int (*)( GEOSContextHandle_t, const GEOSPreparedGeometry*, const GEOSGeometry*, double*)) R_GetCCallable("libgeos", "GEOSPreparedDistance_r");
+  }
 }

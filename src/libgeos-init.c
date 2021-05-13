@@ -7,22 +7,22 @@
 #define GEOS_VERSION_MAJOR 3
 #endif
 #ifndef GEOS_VERSION_MINOR
-#define GEOS_VERSION_MINOR 8
+#define GEOS_VERSION_MINOR 9
 #endif
 #ifndef GEOS_VERSION_PATCH
 #define GEOS_VERSION_PATCH 1
 #endif
 #ifndef GEOS_VERSION
-#define GEOS_VERSION "3.8.1"
+#define GEOS_VERSION "3.9.1"
 #endif
 #ifndef GEOS_JTS_PORT
-#define GEOS_JTS_PORT "1.13.0"
+#define GEOS_JTS_PORT "1.17.0"
 #endif
 
 #define GEOS_CAPI_VERSION_MAJOR 1
-#define GEOS_CAPI_VERSION_MINOR 13
-#define GEOS_CAPI_VERSION_PATCH 3
-#define GEOS_CAPI_VERSION "3.8.1-CAPI-1.13.3"
+#define GEOS_CAPI_VERSION_MINOR 14
+#define GEOS_CAPI_VERSION_PATCH 2
+#define GEOS_CAPI_VERSION "3.9.1-CAPI-1.14.2"
 
 #define GEOS_CAPI_FIRST_INTERFACE GEOS_CAPI_VERSION_MAJOR
 #define GEOS_CAPI_LAST_INTERFACE (GEOS_CAPI_VERSION_MAJOR+GEOS_CAPI_VERSION_MINOR)
@@ -127,16 +127,23 @@ GEOSGeometry* GEOS_DLL GEOSGeom_clone_r(GEOSContextHandle_t handle, const GEOSGe
 void GEOS_DLL GEOSGeom_destroy_r(GEOSContextHandle_t handle, GEOSGeometry* g);
 GEOSGeometry* GEOS_DLL GEOSEnvelope_r(GEOSContextHandle_t handle, const GEOSGeometry* g);
 GEOSGeometry* GEOS_DLL GEOSIntersection_r(GEOSContextHandle_t handle, const GEOSGeometry* g1, const GEOSGeometry* g2);
+GEOSGeometry* GEOS_DLL GEOSIntersectionPrec_r(GEOSContextHandle_t handle, const GEOSGeometry* g1, const GEOSGeometry* g2, double gridSize);
 GEOSGeometry* GEOS_DLL GEOSConvexHull_r(GEOSContextHandle_t handle, const GEOSGeometry* g);
 GEOSGeometry* GEOS_DLL GEOSMinimumRotatedRectangle_r(GEOSContextHandle_t handle, const GEOSGeometry* g);
+GEOSGeometry* GEOS_DLL GEOSMaximumInscribedCircle_r(GEOSContextHandle_t handle, const GEOSGeometry* g, double tolerance);
+GEOSGeometry* GEOS_DLL GEOSLargestEmptyCircle_r(GEOSContextHandle_t handle, const GEOSGeometry* g, const GEOSGeometry* boundary, double tolerance);
 GEOSGeometry* GEOS_DLL GEOSMinimumWidth_r(GEOSContextHandle_t handle, const GEOSGeometry* g);
 GEOSGeometry* GEOS_DLL GEOSMinimumClearanceLine_r(GEOSContextHandle_t handle, const GEOSGeometry* g);
 int GEOS_DLL GEOSMinimumClearance_r(GEOSContextHandle_t handle, const GEOSGeometry* g, double* distance);
 GEOSGeometry* GEOS_DLL GEOSDifference_r(GEOSContextHandle_t handle, const GEOSGeometry* g1, const GEOSGeometry* g2);
+GEOSGeometry* GEOS_DLL GEOSDifferencePrec_r(GEOSContextHandle_t handle, const GEOSGeometry* g1, const GEOSGeometry* g2, double gridSize);
 GEOSGeometry* GEOS_DLL GEOSSymDifference_r(GEOSContextHandle_t handle, const GEOSGeometry* g1, const GEOSGeometry* g2);
+GEOSGeometry* GEOS_DLL GEOSSymDifferencePrec_r(GEOSContextHandle_t handle, const GEOSGeometry* g1, const GEOSGeometry* g2, double gridSize);
 GEOSGeometry* GEOS_DLL GEOSBoundary_r(GEOSContextHandle_t handle, const GEOSGeometry* g);
 GEOSGeometry* GEOS_DLL GEOSUnion_r(GEOSContextHandle_t handle, const GEOSGeometry* g1, const GEOSGeometry* g2);
+GEOSGeometry* GEOS_DLL GEOSUnionPrec_r(GEOSContextHandle_t handle, const GEOSGeometry* g1, const GEOSGeometry* g2, double gridSize);
 GEOSGeometry* GEOS_DLL GEOSUnaryUnion_r(GEOSContextHandle_t handle, const GEOSGeometry* g);
+GEOSGeometry* GEOS_DLL GEOSUnaryUnionPrec_r(GEOSContextHandle_t handle, const GEOSGeometry* g, double gridSize);
 GEOSGeometry* GEOS_DLL GEOSCoverageUnion_r(GEOSContextHandle_t handle, const GEOSGeometry* g);
 GEOSGeometry* GEOS_DLL GEOSUnionCascaded_r(GEOSContextHandle_t handle, const GEOSGeometry* g);
 GEOSGeometry* GEOS_DLL GEOSPointOnSurface_r(GEOSContextHandle_t handle, const GEOSGeometry* g);
@@ -182,6 +189,8 @@ char GEOS_DLL GEOSPreparedIntersects_r(GEOSContextHandle_t handle, const GEOSPre
 char GEOS_DLL GEOSPreparedOverlaps_r(GEOSContextHandle_t handle, const GEOSPreparedGeometry* pg1, const GEOSGeometry* g2);
 char GEOS_DLL GEOSPreparedTouches_r(GEOSContextHandle_t handle, const GEOSPreparedGeometry* pg1, const GEOSGeometry* g2);
 char GEOS_DLL GEOSPreparedWithin_r(GEOSContextHandle_t handle, const GEOSPreparedGeometry* pg1, const GEOSGeometry* g2);
+GEOSCoordSequence* GEOS_DLL GEOSPreparedNearestPoints_r( GEOSContextHandle_t handle, const GEOSPreparedGeometry* pg1, const GEOSGeometry* g2);
+int GEOS_DLL GEOSPreparedDistance_r( GEOSContextHandle_t handle, const GEOSPreparedGeometry* pg1, const GEOSGeometry* g2, double *dist);
 GEOSSTRtree* GEOS_DLL GEOSSTRtree_create_r( GEOSContextHandle_t handle, size_t nodeCapacity);
 void GEOS_DLL GEOSSTRtree_insert_r(GEOSContextHandle_t handle, GEOSSTRtree *tree, const GEOSGeometry *g, void *item);
 void GEOS_DLL GEOSSTRtree_query_r(GEOSContextHandle_t handle, GEOSSTRtree *tree, const GEOSGeometry *g, GEOSQueryCallback callback, void *userdata);
@@ -270,8 +279,13 @@ char GEOS_DLL GEOSWKBWriter_getIncludeSRID_r(GEOSContextHandle_t handle, const G
 void GEOS_DLL GEOSWKBWriter_setIncludeSRID_r(GEOSContextHandle_t handle, GEOSWKBWriter* writer, const char writeSRID);
 void GEOS_DLL GEOSFree_r(GEOSContextHandle_t handle, void *buffer);
 
-// defined in libgeos-version.c, where it is safe to #include geos_c.h
-SEXP libgeos_geos_version();
+// need at least one function passed to R to avoid a NOTE
+SEXP libgeos_geos_version() {
+  SEXP out = PROTECT(Rf_allocVector(STRSXP, 1));
+  SET_STRING_ELT(out, 0, Rf_mkChar(GEOSversion()));
+  UNPROTECT(1);
+  return out;
+}
 
 static const R_CallMethodDef CallEntries[] = {
   {"libgeos_geos_version", (DL_FUNC) &libgeos_geos_version, 0},
@@ -284,7 +298,7 @@ void R_init_libgeos(DllInfo *dll) {
   R_useDynamicSymbols(dll, FALSE);
 
   /* used by external packages linking to libgeos from C */
-    R_RegisterCCallable("libgeos", "libgeos_version_int", (DL_FUNC) &libgeos_version_int);
+  R_RegisterCCallable("libgeos", "libgeos_version_int", (DL_FUNC) &libgeos_version_int);
     R_RegisterCCallable("libgeos", "initGEOS_r", (DL_FUNC) &initGEOS_r);
     R_RegisterCCallable("libgeos", "finishGEOS_r", (DL_FUNC) &finishGEOS_r);
     R_RegisterCCallable("libgeos", "GEOS_init_r", (DL_FUNC) &GEOS_init_r);
@@ -352,16 +366,23 @@ void R_init_libgeos(DllInfo *dll) {
     R_RegisterCCallable("libgeos", "GEOSGeom_destroy_r", (DL_FUNC) &GEOSGeom_destroy_r);
     R_RegisterCCallable("libgeos", "GEOSEnvelope_r", (DL_FUNC) &GEOSEnvelope_r);
     R_RegisterCCallable("libgeos", "GEOSIntersection_r", (DL_FUNC) &GEOSIntersection_r);
+    R_RegisterCCallable("libgeos", "GEOSIntersectionPrec_r", (DL_FUNC) &GEOSIntersectionPrec_r);
     R_RegisterCCallable("libgeos", "GEOSConvexHull_r", (DL_FUNC) &GEOSConvexHull_r);
     R_RegisterCCallable("libgeos", "GEOSMinimumRotatedRectangle_r", (DL_FUNC) &GEOSMinimumRotatedRectangle_r);
+    R_RegisterCCallable("libgeos", "GEOSMaximumInscribedCircle_r", (DL_FUNC) &GEOSMaximumInscribedCircle_r);
+    R_RegisterCCallable("libgeos", "GEOSLargestEmptyCircle_r", (DL_FUNC) &GEOSLargestEmptyCircle_r);
     R_RegisterCCallable("libgeos", "GEOSMinimumWidth_r", (DL_FUNC) &GEOSMinimumWidth_r);
     R_RegisterCCallable("libgeos", "GEOSMinimumClearanceLine_r", (DL_FUNC) &GEOSMinimumClearanceLine_r);
     R_RegisterCCallable("libgeos", "GEOSMinimumClearance_r", (DL_FUNC) &GEOSMinimumClearance_r);
     R_RegisterCCallable("libgeos", "GEOSDifference_r", (DL_FUNC) &GEOSDifference_r);
+    R_RegisterCCallable("libgeos", "GEOSDifferencePrec_r", (DL_FUNC) &GEOSDifferencePrec_r);
     R_RegisterCCallable("libgeos", "GEOSSymDifference_r", (DL_FUNC) &GEOSSymDifference_r);
+    R_RegisterCCallable("libgeos", "GEOSSymDifferencePrec_r", (DL_FUNC) &GEOSSymDifferencePrec_r);
     R_RegisterCCallable("libgeos", "GEOSBoundary_r", (DL_FUNC) &GEOSBoundary_r);
     R_RegisterCCallable("libgeos", "GEOSUnion_r", (DL_FUNC) &GEOSUnion_r);
+    R_RegisterCCallable("libgeos", "GEOSUnionPrec_r", (DL_FUNC) &GEOSUnionPrec_r);
     R_RegisterCCallable("libgeos", "GEOSUnaryUnion_r", (DL_FUNC) &GEOSUnaryUnion_r);
+    R_RegisterCCallable("libgeos", "GEOSUnaryUnionPrec_r", (DL_FUNC) &GEOSUnaryUnionPrec_r);
     R_RegisterCCallable("libgeos", "GEOSCoverageUnion_r", (DL_FUNC) &GEOSCoverageUnion_r);
     R_RegisterCCallable("libgeos", "GEOSUnionCascaded_r", (DL_FUNC) &GEOSUnionCascaded_r);
     R_RegisterCCallable("libgeos", "GEOSPointOnSurface_r", (DL_FUNC) &GEOSPointOnSurface_r);
@@ -407,6 +428,8 @@ void R_init_libgeos(DllInfo *dll) {
     R_RegisterCCallable("libgeos", "GEOSPreparedOverlaps_r", (DL_FUNC) &GEOSPreparedOverlaps_r);
     R_RegisterCCallable("libgeos", "GEOSPreparedTouches_r", (DL_FUNC) &GEOSPreparedTouches_r);
     R_RegisterCCallable("libgeos", "GEOSPreparedWithin_r", (DL_FUNC) &GEOSPreparedWithin_r);
+    R_RegisterCCallable("libgeos", "GEOSPreparedNearestPoints_r", (DL_FUNC) &GEOSPreparedNearestPoints_r);
+    R_RegisterCCallable("libgeos", "GEOSPreparedDistance_r", (DL_FUNC) &GEOSPreparedDistance_r);
     R_RegisterCCallable("libgeos", "GEOSSTRtree_create_r", (DL_FUNC) &GEOSSTRtree_create_r);
     R_RegisterCCallable("libgeos", "GEOSSTRtree_insert_r", (DL_FUNC) &GEOSSTRtree_insert_r);
     R_RegisterCCallable("libgeos", "GEOSSTRtree_query_r", (DL_FUNC) &GEOSSTRtree_query_r);
