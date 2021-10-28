@@ -7,7 +7,7 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-![R-CMD-check](https://github.com/paleolimbot/libgeos/workflows/R-CMD-check/badge.svg)
+[![R-CMD-check](https://github.com/paleolimbot/libgeos/workflows/R-CMD-check/badge.svg)](https://github.com/paleolimbot/libgeos/actions)
 <!-- badges: end -->
 
 The goal of libgeos is to provide access to the
@@ -39,12 +39,11 @@ Package Manager’s public instance](https://packagemanager.rstudio.com/)
 [here](https://packagemanager.rstudio.com/client/#/repos/1/overview) for
 how to configure on your platform).
 
-You can install the development version of libgeos from
-[GitHub](https://github.com/) with:
+You can install the development version from
+[RUniverse](https://r-universe.dev/) with:
 
 ``` r
-# install.packages("remotes")
-remotes::install_github("paleolimbot/libgeos")
+install.packages("libgeos", repos = "https://paleolimbot.r-universe.dev")
 ```
 
 ## Example
@@ -86,7 +85,7 @@ std::string version() {
 ``` r
 cpp_libgeos_init_api()
 version()
-#> [1] "3.9.1-CAPI-1.14.2"
+#> [1] "3.10.0-CAPI-1.16.0"
 ```
 
 You can link to libegeos interactively from cpp11 using
@@ -122,5 +121,5 @@ std::string version() {
 ``` r
 cpp_libgeos_init_api()
 version()
-#> [1] "3.9.1-CAPI-1.14.2"
+#> [1] "3.10.0-CAPI-1.16.0"
 ```
