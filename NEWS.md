@@ -1,3 +1,8 @@
+# libgeos 3.11.1-1
+
+* Update to GEOS 3.11.1 (#17).
+* Add `#include <cstdint>` to fix compilation on gcc13.
+
 # libgeos 3.11.0-2
 
 * Fixes warnings when compiling with `-Wstrict-prototypes`.
