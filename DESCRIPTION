@@ -1,6 +1,6 @@
 Package: libgeos
 Title: Open Source Geometry Engine ('GEOS') C API
-Version: 3.11.1-1
+Version: 3.11.1-2
 Authors@R: 
     c(
       person(given = "Dewey",
@@ -35,13 +35,13 @@ Description: Provides the Open Source Geometry Engine ('GEOS') as a
 License: LGPL (>= 2.1)
 Copyright: file COPYRIGHTS
 Encoding: UTF-8
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 URL: https://paleolimbot.github.io/libgeos/,
         https://github.com/paleolimbot/libgeos
 BugReports: https://github.com/paleolimbot/libgeos/issues
 Suggests: testthat
 NeedsCompilation: yes
-Packaged: 2023-01-17 02:57:53 UTC; deweydunnington
+Packaged: 2023-11-29 01:57:05 UTC; deweydunnington
 Author: Dewey Dunnington [aut, cre] (<https://orcid.org/0000-0002-9415-4582>),
   GEOS authors [aut],
   Martin Davis [ctb, cph],
@@ -61,4 +61,4 @@ Author: Dewey Dunnington [aut, cre] (<https://orcid.org/0000-0002-9415-4582>),
   Vivid Solutions Inc. [cph]
 Maintainer: Dewey Dunnington <dewey@fishandwhistle.net>
 Repository: CRAN
-Date/Publication: 2023-01-19 17:40:02 UTC
+Date/Publication: 2023-11-29 05:20:02 UTC
