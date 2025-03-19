@@ -1,6 +1,6 @@
-f304f1b5407a0f75a3030cfb864f8610 *DESCRIPTION
+744e206b36f7bbfa11322a97c6de4836 *DESCRIPTION
 181044c276f2e9f8faa55ea58d02ec83 *NAMESPACE
-631dbdfa2391713b2d3d0c0104732aaa *NEWS.md
+d8f2f13ccbcc5083a53763903b1cc06d *NEWS.md
 2e2a05191f6b383a486f64b027c6722e *R/libgeos-package.R
 80a8d1eed5ba4cd2c26dd252c8d466e3 *README.md
 df2f1f14bf5ed02c1024ae317ea65487 *cleanup
@@ -837,7 +837,7 @@ dfb3540b68c8e76588e973adba9f06e2 *src/geos_include/geos/util/UnsupportedOperatio
 76b9adee91b428c7a568c5b9268b631d *src/geos_include/geos/version.h
 88ad1520c433c4245c3f5414d2e0dfc6 *src/geos_include/geos_c.h
 6e159253f8c0eb3b39c65bf6cc0b95cf *src/geos_include/libgeos-cpp-compat.h
-2907485d66cbb92dcdc95f2b5515cd89 *src/geos_include/nlohmann_json.hpp
+41bfaac4f3ffbeb522beb538ae6edb76 *src/geos_include/nlohmann_json.hpp
 dbd7196bd51c6ed4e6fbf9c68bd14fd4 *src/geos_include/ryu/common.h
 f05e68ea797552fbcbe12db14e7773ea *src/geos_include/ryu/d2fixed_full_table.h
 c67dbe9a4a1f27328d722f3a0195f38e *src/geos_include/ryu/d2s_full_table.h
